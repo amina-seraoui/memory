@@ -1,0 +1,10 @@
+#memory-game {
+    @extend %flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+
+    img {
+        width: auto;
+        height: 100%;
+    }
+}

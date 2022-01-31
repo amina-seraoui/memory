@@ -1,0 +1,8 @@
+.moves {
+    @extend %flex;
+    align-items: center;
+
+    span {
+        margin-right: ratio-space(2px);
+    }
+}

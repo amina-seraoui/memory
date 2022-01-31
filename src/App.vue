@@ -1,30 +1,58 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <header>
+      <picture>
+        <source media="(min-width: 750px)" srcset="./assets/img/logo.svg">
+        <source media="(max-width: 750px)" srcset="./assets/img/logo-min.svg">
+        <img
+          src="./assets/img/logo.svg"
+          alt="Memory Logo"
+          class="logo"
+        >
+      </picture>
+        <Moves />
+    </header>
+    <main>
+        <section id="memory-game">
+          <img src="@/assets/img/gameboy.png" alt="Cute Gameboy">
+          <div>
+            <div id="deck">
+              <Card v-for="i in 36" :key="i" />
+            </div>
+            <Timer />
+          </div>
+        </section>
+        <Podium  v-if="!isGameStart && !isGameOver"/>
+        <GameOver  v-else-if="!isGameStart && isGameOver"/>
+    </main>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// @ is an alias to /src
+import Moves from '@/components/Moves.vue'
+import Card from '@/components/Card.vue'
+import Timer from '@/components/Timer.vue'
+import Podium from '@/components/Podium.vue'
+import GameOver from '@/components/GameOver.vue'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+    components: {
+        Moves,
+        Card,
+        Timer,
+        Podium,
+        GameOver
+    },
+    data () {
+        return {
+            isGameStart: false,
+            isGameOver: false
+        }
     }
-  }
 }
+</script>
+
+<style lang="scss" scoped>
+  .logo {
+    filter: drop-shadow(4px 4px 4px rgba(#000, .25))
+  }
 </style>

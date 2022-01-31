@@ -1,0 +1,41 @@
+.card {
+    cursor: pointer;
+    width: 115px;
+    height: 130px;
+    position: relative;
+    
+    // /** COVER OF THE CARD **/
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $secondary-color;
+        border-radius: 15px;
+        backface-visibility: hidden;
+        transition: .5s;
+    }
+    
+    .face {
+        width: 100%;
+        height: 100%;
+        background: url('../img/cards.png') no-repeat;
+        background-size: 100% auto;
+        background-position-x: 0;
+        background-position-y: 5.55%; // to update dynamically
+        box-shadow: 4px 4px 4px rgba(#000, 0.15);
+        border-radius: 15px;
+        transition: .5s;
+    }
+    
+    &.flipped {
+        .face, &:after {
+            transform: rotateY(180deg);
+        }
+        .face {
+            box-shadow: -4px 4px 4px rgba(#000, 0.15);
+        }
+    }
+}

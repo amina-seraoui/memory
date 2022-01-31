@@ -1,0 +1,5 @@
+header {
+    padding: ratio-space(3px) ratio-space(3px) ratio-space(4px) ratio-space(3px);
+    @extend %flex;
+    justify-content: space-between;
+}

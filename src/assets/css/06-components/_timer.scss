@@ -1,0 +1,14 @@
+.timer {
+    margin: ratio-space(3px) 0;
+    @extend %flex;
+    justify-content: space-between;
+    align-items: center;
+
+    progress {
+        width: 85%;
+        background-color: $light-orange;
+        height: 0;
+        padding: 12px 0;
+        border-radius: 12px;
+    }
+}
