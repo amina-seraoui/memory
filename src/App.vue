@@ -16,13 +16,13 @@
           <img src="@/assets/img/gameboy.png" alt="Cute Gameboy">
           <div>
             <div id="deck">
-              <Card v-for="(card, i) in cards" :key="i" :card="card"/>
+              <Card v-for="(card, i) in cards" :key="i" :card="card" @click="flip(i)"/>
             </div>
             <Timer />
           </div>
         </section>
-        <Podium v-if="!isGameStart && !isGameOver" :startGame="startGame"/>
-        <GameOver v-else-if="!isGameStart && isGameOver"/>
+        <GameOver v-if="isGameOver"/>
+        <Podium v-else-if="!isGameStart" :startGame="startGame"/>
     </main>
 </template>
 
@@ -45,20 +45,60 @@ export default {
     data () {
         const cards = []
         for (let i = 0; i < 18; i++) {
-            cards.push({ pos: i })
-            cards.push({ pos: i })
+            const card = {
+                pos: i,
+                flipped: false,
+                match: false
+            }
+            cards.push({ ...card })
+            cards.push({ ...card })
         }
 
         return {
             isGameStart: false,
             isGameOver: false,
-            cards
+            cards,
+            flippedCards: [],
+            score: 0
         }
     },
     methods: {
         startGame () {
             this.cards.sort(() => Math.random() - 0.5)
             this.isGameStart = true
+        },
+        flip (i) {
+            if (this.flippedCards.length < 2) {
+                if (!this.cards[i].flipped) {
+                    this.cards[i].flipped = true
+                    this.flippedCards.push(this.cards[i])
+                    this.checkMatch()
+                }
+
+                return true
+            }
+            return false
+        },
+        checkMatch () {
+            if (this.flippedCards.length === 2) {
+                if (this.flippedCards[0].pos === this.flippedCards[1].pos) {
+                    // MATCH
+                    this.flippedCards[0].match = true
+                    this.flippedCards[1].match = true
+                    this.flippedCards = []
+                    this.score++
+
+                    console.log(this.score)
+                    this.isGameOver = this.score === 18
+                } else {
+                    // NO MATCH
+                    setTimeout(() => {
+                        this.flippedCards[0].flipped = false
+                        this.flippedCards[1].flipped = false
+                        this.flippedCards = []
+                    }, 1000)
+                }
+            }
         }
     }
 }
