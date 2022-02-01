@@ -1,16 +1,12 @@
 <template>
     <div class="timer">
-        <progress />
-        <span>{{ time }}</span>
+        <progress :value="time" :max="max"/>
+        <span>{{ str }}</span>
     </div>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            time: '00:00'
-        }
-    }
+    props: ['time', 'str', 'max']
 }
 </script>

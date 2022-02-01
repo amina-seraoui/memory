@@ -1,13 +1,13 @@
 <template>
-    <section id="game-over"></section>
+    <section id="game-over">
+        <h1>{{ win ? 'Bien joué' : 'Temps écoulé' }} !</h1>
+        <p>{{ time }}</p>
+        <button class="btn" @click="replay">Rejouer</button>
+    </section>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            time: '00:00'
-        }
-    }
+    props: ['win', 'time', 'replay']
 }
 </script>

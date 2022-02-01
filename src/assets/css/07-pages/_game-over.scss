@@ -1,11 +1,8 @@
 #game-over {
-    position: absolute;
-    background-color: $white;
-    top: 20%;
-    left: 5%;
-    width: 90%;
-    height: 60%;
+    @extend %modal;
 
-    @extend %box-shadow;
-    @extend %big-font;
+    p {
+        font-size: $medium-font;
+        margin: ratio-space(4px);
+    }
 }
