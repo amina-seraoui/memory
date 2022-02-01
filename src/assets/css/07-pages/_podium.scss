@@ -1,0 +1,74 @@
+#podium {
+    position: absolute;
+    background-color: $white;
+    top: 20%;
+    left: 5%;
+    width: 90%;
+    height: 60%;
+
+    @extend %box-shadow;
+    @extend %big-font;
+    @extend %flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .times {
+        @extend %flex;
+        align-items: flex-end;
+        gap: ratio-space(8px);
+        margin-bottom: ratio-space(4px);
+        .time {
+            .icon {
+                background: center no-repeat;
+            }
+            padding: ratio-space(3px);
+            border-radius: 50px 50px 0 0;
+
+            &:nth-child(1) {
+                order: 3;
+                background: $light-orange;
+                .icon {
+                    height: 80px;
+                    background-image: url('../img/top-1.svg');
+                }
+                padding-bottom: ratio-space(3px) + ratio-space(4px) * 5;
+            }
+            &:nth-child(2) {
+                order: 2;
+                background: $light-green;
+                .icon {
+                    height: 64px;
+                    background-image: url('../img/top-2.svg');
+                }
+                padding-bottom: ratio-space(3px) + ratio-space(4px) * 4;
+            }
+            &:nth-child(3) {
+                order: 4;
+                background: $light-blue;
+                .icon {
+                    height: 64px;
+                    background-image: url('../img/top-3.svg');
+                }
+                padding-bottom: ratio-space(3px) + ratio-space(4px) * 3;
+            }
+            &:nth-child(4) {
+                order: 1;
+                background: $light-pink;
+                .icon {
+                    height: 64px;
+                    background-image: url('../img/top-4-5.svg');
+                }
+                padding-bottom: ratio-space(3px) + ratio-space(4px) * 2;
+            }
+            &:nth-child(5) {
+                order: 5;
+                background: $light-pink;
+                .icon {
+                    height: 64px;
+                    background-image: url('../img/top-4-5.svg');
+                }
+            }
+        }
+    }
+}

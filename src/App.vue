@@ -16,13 +16,13 @@
           <img src="@/assets/img/gameboy.png" alt="Cute Gameboy">
           <div>
             <div id="deck">
-              <Card v-for="i in 36" :key="i" />
+              <Card v-for="(card, i) in cards" :key="i" :card="card"/>
             </div>
             <Timer />
           </div>
         </section>
-        <Podium  v-if="!isGameStart && !isGameOver"/>
-        <GameOver  v-else-if="!isGameStart && isGameOver"/>
+        <Podium v-if="!isGameStart && !isGameOver" :startGame="startGame"/>
+        <GameOver v-else-if="!isGameStart && isGameOver"/>
     </main>
 </template>
 
@@ -43,9 +43,22 @@ export default {
         GameOver
     },
     data () {
+        const cards = []
+        for (let i = 0; i < 18; i++) {
+            cards.push({ pos: i })
+            cards.push({ pos: i })
+        }
+
         return {
             isGameStart: false,
-            isGameOver: false
+            isGameOver: false,
+            cards
+        }
+    },
+    methods: {
+        startGame () {
+            this.cards.sort(() => Math.random() - 0.5)
+            this.isGameStart = true
         }
     }
 }
