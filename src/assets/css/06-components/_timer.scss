@@ -5,10 +5,20 @@
     align-items: center;
 
     progress {
+        appearance: none; // réinitialise l'apparence par défaut
         width: 85%;
-        background-color: $light-orange;
-        height: 0;
-        padding: 12px 0;
+        height: 24px;
         border-radius: 12px;
+        
+        &::-webkit-progress-bar {
+            border-radius: 12px;
+            background-color: $light-orange;
+        }
+        
+        &::-webkit-progress-value {
+            transition: 1s;
+            border-radius: 12px;
+            background-color: $orange;
+        }
     }
 }
