@@ -8,4 +8,7 @@ h1 {
     text-transform: uppercase;
     font-weight: 700;
     font-size: $big-font;
+    @media #{$media-down-md} {
+        font-size: 25px;
+    }
 }

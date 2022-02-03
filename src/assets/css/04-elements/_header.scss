@@ -13,4 +13,10 @@ header {
     .icon {
         height: 32px;
     }
+
+    @media #{$media-down-md} {
+        .logo {
+            height: 32px;
+        }
+    }
 }

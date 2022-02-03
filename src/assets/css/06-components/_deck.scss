@@ -5,4 +5,21 @@
     grid-gap: ratio-space(2px);
     justify-content: center;
     align-items: center;
+
+    @media #{$media-down-xl} {
+        grid-template-columns: repeat(9, 95px);
+    }
+    @media #{$media-down-lg} {
+        grid-template-columns: repeat(9, 80px);
+        grid-auto-rows: 95px;
+    }
+    @media #{$media-down-md} {
+        grid-template-columns: repeat(6, 80px);
+        grid-auto-rows: 80px;
+        grid-gap: ratio-space(1px);
+    }
+    @media #{$media-down-sm} {
+        grid-template-columns: repeat(4, 64px);
+        grid-auto-rows: 64px;
+    }
 }

@@ -6,4 +6,8 @@
     color: $white;
     background: $primary-color;
     font-size: $big-font;
+
+    @media #{$media-down-md} {
+        font-size: 25px;
+    }
 }
