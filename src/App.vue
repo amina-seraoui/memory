@@ -9,11 +9,10 @@
           class="logo"
         >
       </picture>
-        <Moves />
+        <Moves :moves="hits"/>
     </header>
     <main>
         <section id="memory-game">
-          <img src="@/assets/img/gameboy.png" alt="Cute Gameboy">
           <div>
             <div id="deck">
               <Card v-for="(card, i) in cards" :key="i" :card="card" @click="flip(i)" :play="isGameStart && !isGameOver"/>
@@ -50,7 +49,8 @@ export default {
             flippedCards: [],
             score: 0,
             win: false,
-            time: '00:00'
+            time: '00:00',
+            hits: 0
         }
     },
     methods: {
@@ -76,6 +76,7 @@ export default {
             this.flippedCards = []
             this.score = 0
             this.win = false
+            this.hits = 0
         },
         flip (i) {
             if (
@@ -86,6 +87,7 @@ export default {
             ) {
                 this.cards[i].flipped = true
                 this.flippedCards.push(this.cards[i])
+                this.hits++
                 this.checkMatch()
             }
         },
@@ -120,9 +122,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-  .logo {
-    filter: drop-shadow(4px 4px 4px rgba(#000, .25))
-  }
-</style>

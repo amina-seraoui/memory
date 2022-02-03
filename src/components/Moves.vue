@@ -8,10 +8,6 @@
 <script>
 export default {
     name: 'Moves',
-    data () {
-        return {
-            moves: 0
-        }
-    }
+    props: ['moves']
 }
 </script>

@@ -1,60 +1,70 @@
 #podium {
     @extend %modal;
     font-size: $big-font!important;
-    
+
     .times {
         @extend %flex;
         align-items: flex-end;
-        gap: ratio-space(8px);
-        margin-bottom: ratio-space(4px);
+        gap: ratio-space(4px);
+        margin: ratio-space(14px) 0 ratio-space(4px) 0;
         .time {
+            position: relative;
             .icon {
-                background: center no-repeat;
+                position: absolute;
+                left: 0;
+                width: 100%;
+                background: center / contain no-repeat;
+                margin-bottom: ratio-space(1px);
             }
             padding: ratio-space(3px);
-            border-radius: 50px 50px 0 0;
+            border-radius: 32px 32px 0 0;
 
             &:nth-child(1) {
                 order: 3;
                 background: $light-orange;
                 .icon {
                     height: 80px;
+                    top: -80px;
                     background-image: url('../img/top-1.svg');
                 }
-                padding-bottom: ratio-space(3px) + ratio-space(4px) * 5;
+                padding-bottom: ratio-space(3px) + ratio-space(2px) * 5;
             }
             &:nth-child(2) {
                 order: 2;
                 background: $light-green;
                 .icon {
                     height: 64px;
+                    top: -64px;
                     background-image: url('../img/top-2.svg');
                 }
-                padding-bottom: ratio-space(3px) + ratio-space(4px) * 4;
+                padding-bottom: ratio-space(3px) + ratio-space(2px) * 4;
             }
             &:nth-child(3) {
                 order: 4;
                 background: $light-blue;
                 .icon {
                     height: 64px;
+                    top: -64px;
                     background-image: url('../img/top-3.svg');
                 }
-                padding-bottom: ratio-space(3px) + ratio-space(4px) * 3;
+                padding-bottom: ratio-space(3px) + ratio-space(2px) * 3;
             }
             &:nth-child(4) {
                 order: 1;
                 background: $light-pink;
                 .icon {
-                    height: 64px;
+                    height: 40px;
+                    top: -40px;
                     background-image: url('../img/top-4-5.svg');
                 }
-                padding-bottom: ratio-space(3px) + ratio-space(4px) * 2;
+                padding-bottom: ratio-space(3px) + ratio-space(2px) * 2;
             }
             &:nth-child(5) {
                 order: 5;
                 background: $light-pink;
                 .icon {
-                    height: 64px;
+                    height: 40px;
+                    top: -40px;
                     background-image: url('../img/top-4-5.svg');
                 }
             }
