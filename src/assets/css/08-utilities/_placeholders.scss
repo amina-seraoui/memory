@@ -15,10 +15,10 @@
     @extend %box-shadow;
     position: absolute;
     background-color: $white;
-    top: 20%;
+    top: 15%;
     left: 5%;
     width: 90%;
-    min-height: 60%;
+    min-height: 70%;
     font-size: $medium-font;
     @extend %flex;
     flex-direction: column;
@@ -28,5 +28,7 @@
 
     @media #{$media-down-md} {
         font-size: 16px;
+        height: 90%;
+        top: 5%;
     }
 }

@@ -19,10 +19,10 @@ q:after {
 * {
     font: inherit;
     color: inherit;
+    box-sizing: border-box;
 }
 
 html, body {
-    box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: $font-primary;
     font-size: $font-size;

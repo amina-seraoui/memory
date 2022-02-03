@@ -1,7 +1,7 @@
 #memory-game {
     @extend %flex;
     justify-content: center;
-
+    align-items: space-between;
     // background: url('../img/gameboy.png') 100% no-repeat;
     // background-position: left 0 bottom 25%;
 }

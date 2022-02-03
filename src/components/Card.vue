@@ -1,7 +1,6 @@
 <template>
     <div
         class="card"
-        data-position="1"
         :class="card.flipped ? 'flipped' : ''"
         :style="{ opacity: card.match ? 0.5 : 1, cursor: (card.flipped || !play) ? 'default' : 'pointer' }"
     >
