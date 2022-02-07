@@ -48,7 +48,7 @@
         }
     }
 
-     @media #{$media-up-md} {
+     @media #{$media-up-lg} {
         .times {
             grid-template-columns: repeat(5, 1fr);
             gap: ratio-space(4px);
@@ -100,7 +100,7 @@
         }
     }
 
-     @media #{$media-down-md} {
+     @media #{$media-down-lg} {
         font-size: 25px!important;
 
         .times {

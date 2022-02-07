@@ -15,8 +15,18 @@ export default {
     props: ['startGame'],
     data () {
         return {
-            records: ['00:13', '00:16', '00:25', '00:45', '01:06']
+            records: []
         }
+    },
+    async mounted () {
+        fetch('http://localhost:3000/top5')
+            .then(res => res.json())
+            .then(res => {
+                res.map(record => {
+                    this.records.push(record.time)
+                })
+            })
+            .catch(err => console.error(err))
     }
 }
 </script>
