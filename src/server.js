@@ -27,10 +27,14 @@ app.get('/top5', (req, res) => {
 app.post('/win', (req, res) => {
     console.log('data received :', req.body)
     if (req.body.time !== undefined && req.body.hits !== undefined) {
-        db.query('INSERT INTO scores (time, hits) VALUES (?, ?)', [
+        db.query('INSERT INTO scores (time, hits, date) VALUES (?, ?, NOW())', [
             req.body.time,
             req.body.hits
         ], (err, rows, fields) => {
+            // res.send(JSON.stringify({err, rows, fields}))
+        })
+
+        db.query('SELECT time, hits FROM scores ORDER BY time ASC LIMIT 5', (err, rows, fields) => {
             res.send(rows)
         })
     } else {
